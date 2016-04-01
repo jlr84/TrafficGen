@@ -35,4 +35,7 @@ http://traffic.comics.unina.it/software/ITG/documentation.php
 4. "Assussing-Mininet" GitHub Page I based some of this code on:
 https://github.com/sjas/assessing-mininet
 
+## Install / Clone
+* Clone this repository to the mininet VM in the '~/mininet/' directory.
+
 
