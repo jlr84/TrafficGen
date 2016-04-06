@@ -51,7 +51,7 @@ class BenchmarkTopo( Topo ):
 
         # Add links 
         # Switches first
-        self.addLink( sw1, sw2, bw=10, delay='1ms' )
+        self.addLink( sw1, sw2, bw=256, delay='5ms', max_queue_size=1000 )
 
         # Add links to log host
         self.addLink( sw1, h500 )
@@ -64,11 +64,11 @@ class BenchmarkTopo( Topo ):
 
         # Add links to sender hosts
         for i in senders:
-            self.addLink( i, sw1 )
+            self.addLink( i, sw1, bw=256, delay='5ms')
 
         # Add links to receiver hosts
         for i in receivers:
-            self.addLink( i, sw2 )
+            self.addLink( i, sw2, bw=256, delay='5ms')
 
 topos = { 'benchmark': ( lambda: BenchmarkTopo() ) }
 

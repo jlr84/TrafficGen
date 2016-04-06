@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#usage: $ ./ITGSendTCP_cbr <recv ip> <logserv ip> <bitrate> <duration>
+#usage: $ ./ITGSendTCPBursty_cbr <recv ip> <logserv ip> <bitrate> <duration>
 #       <ip> is in the 10.0.0.x range
 #       <duration> 1000 is 1 sec
 #
@@ -22,6 +22,7 @@
 #   -L  logserv ip
 #   -x  recv_log_file
 #   -X  logserv ip
+#   -B  generate bursty inter-departure time between packets (E 100 W 10 100 == On period is exponential with average 100; Off period is Weibull distribution with shape 10 and scale 100) 
 #
 ############################################
 #DESTINATIONS
@@ -36,4 +37,4 @@ duration="${4}"
 packetcount="${5}"
 #
 #GO TEST SOME STUFF
-~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGSend -a $destserv -rp 9500 -T TCP -C $packetcount -c $bitrate -t $duration -l $sendname -L $logserv -x $recvname -X $logserv
+~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGSend -a $destserv -rp 9500 -T TCP -c $bitrate -t $duration -l $sendname -L $logserv -x $recvname -X $logserv -B E 100 W 10 100

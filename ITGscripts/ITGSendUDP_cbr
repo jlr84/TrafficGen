@@ -31,7 +31,7 @@ logserv="${2}"
 sendname="log_udp_snd_${3}_cbr"
 recvname="log_udp_rcv_${3}_cbr"
 #TRAFFIC
-bitrate=1472
+bitrate=1536
 duration="${4}"
 packetcount="${5}"
 #
