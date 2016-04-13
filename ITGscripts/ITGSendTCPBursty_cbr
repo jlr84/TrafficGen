@@ -32,7 +32,7 @@ logserv="${2}"
 sendname="log_tcp_snd_${3}_cbr"
 recvname="log_tcp_rcv_${3}_cbr"
 #TRAFFIC
-bitrate=1536
+bitrate=1460
 duration="${4}"
 packetcount="${5}"
 #

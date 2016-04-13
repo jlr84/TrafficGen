@@ -102,7 +102,7 @@ ssh -oStrictHostKeyChecking=no mininet@10.0.0.20 "~/mininet/TrafficGen/D-ITG-2.8
 echo '***** Sender 1'
 bash -i -l -c 'sshpass -p mininet \
 ssh -oStrictHostKeyChecking=no mininet@10.0.0.1 "\
-echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.11 10.0.0.21   01000 300000 4162 0>/dev/null && \
+echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.11 10.0.0.21   01000 300000 5650 0>/dev/null && \
 \
 date && echo ***** ... Sender 1 FINISHED"&'
 
@@ -110,7 +110,7 @@ date && echo ***** ... Sender 1 FINISHED"&'
 echo '***** Sender 2'
 bash -i -l -c 'sshpass -p mininet \
 ssh -oStrictHostKeyChecking=no mininet@10.0.0.2 "\
-echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.12 10.0.0.21  02000 300000 4162 0>/dev/null && \
+echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.12 10.0.0.21  02000 300000 5650 0>/dev/null && \
 \
 date && echo ***** ... Sender 2 FINISHED"&'
 
@@ -118,7 +118,7 @@ date && echo ***** ... Sender 2 FINISHED"&'
 echo '***** Sender 3'
 bash -i -l -c 'sshpass -p mininet \
 ssh -oStrictHostKeyChecking=no mininet@10.0.0.3 "\
-echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.13 10.0.0.21  03000 300000 4162 0>/dev/null && \
+echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.13 10.0.0.21  03000 300000 5650 0>/dev/null && \
 \
 date && echo ***** ... Sender 3 FINISHED"&'
 
@@ -126,7 +126,7 @@ date && echo ***** ... Sender 3 FINISHED"&'
 echo '***** Sender 4'
 bash -i -l -c 'sshpass -p mininet \
 ssh -oStrictHostKeyChecking=no mininet@10.0.0.4 "\
-echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.14 10.0.0.21  04000 300000 4162 0>/dev/null && \
+echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.14 10.0.0.21  04000 300000 5650 0>/dev/null && \
 \
 date && echo ***** ... Sender 4 FINISHED"&'
 
@@ -134,7 +134,7 @@ date && echo ***** ... Sender 4 FINISHED"&'
 echo '***** Sender 5'
 bash -i -l -c 'sshpass -p mininet \
 ssh -oStrictHostKeyChecking=no mininet@10.0.0.5 "\
-echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.15 10.0.0.21  05000 300000 4162 0>/dev/null && \
+echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.15 10.0.0.21  05000 300000 5650 0>/dev/null && \
 \
 date && echo ***** ... Sender 5 FINISHED"&'
 

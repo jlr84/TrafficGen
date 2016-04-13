@@ -142,7 +142,7 @@ date && echo ***** ... Sender 5 FINISHED"&'
 echo '***** Sender 6'
 bash -i -l -c 'sshpass -p mininet \
 ssh -oStrictHostKeyChecking=no mininet@10.0.0.6 "\
-echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCPBursty_cbr 10.0.0.16 10.0.0.21  06000 300000 5650 0>/dev/null && \
+echo '\n' && date && sleep 30 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCPBursty_cbr 10.0.0.16 10.0.0.21  06000 90000 5650 0>/dev/null && \
 \
 date && echo ***** ... Sender 6 FINISHED"&'
 
@@ -150,7 +150,7 @@ date && echo ***** ... Sender 6 FINISHED"&'
 echo '***** Sender 7'
 bash -i -l -c 'sshpass -p mininet \
 ssh -oStrictHostKeyChecking=no mininet@10.0.0.7 "\
-echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCPBursty_cbr 10.0.0.17 10.0.0.21  07000 300000 5650 0>/dev/null && \
+echo '\n' && date && sleep 30 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCPBursty_cbr 10.0.0.17 10.0.0.21  07000 90000 5650 0>/dev/null && \
 \
 date && echo ***** ... Sender 7 FINISHED"&'
 
@@ -158,7 +158,7 @@ date && echo ***** ... Sender 7 FINISHED"&'
 echo '***** Sender 8'
 bash -i -l -c 'sshpass -p mininet \
 ssh -oStrictHostKeyChecking=no mininet@10.0.0.8 "\
-echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCPBursty_cbr 10.0.0.18 10.0.0.21  08000 300000 5650 0>/dev/null && \
+echo '\n' && date && sleep 30 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCPBursty_cbr 10.0.0.18 10.0.0.21  08000 90000 5650 0>/dev/null && \
 \
 date && echo ***** ... Sender 8 FINISHED"&'
 
@@ -166,7 +166,7 @@ date && echo ***** ... Sender 8 FINISHED"&'
 echo '***** Sender 9'
 bash -i -l -c 'sshpass -p mininet \
 ssh -oStrictHostKeyChecking=no mininet@10.0.0.9 "\
-echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCPBursty_cbr 10.0.0.19 10.0.0.21  09000 300000 5650 0>/dev/null && \
+echo '\n' && date && sleep 30 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCPBursty_cbr 10.0.0.19 10.0.0.21  09000 90000 5650 0>/dev/null && \
 \
 date && echo ***** ... Sender 9 FINISHED"&'
 
@@ -174,7 +174,7 @@ date && echo ***** ... Sender 9 FINISHED"&'
 echo '***** Sender 10'
 bash -i -l -c 'sshpass -p mininet \
 ssh -oStrictHostKeyChecking=no mininet@10.0.0.10 "\
-echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCPBursty_cbr 10.0.0.20 10.0.0.21  10000 300000 5650 0>/dev/null && \
+echo '\n' && date && sleep 30 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCPBursty_cbr 10.0.0.20 10.0.0.21  10000 90000 5650 0>/dev/null && \
 \
 date && echo ***** ... Sender 10 FINISHED"&'
 
