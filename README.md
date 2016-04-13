@@ -31,12 +31,14 @@ $ sudo apt-get install sshpass -y
    /usr/src/linux-headers-3.16.0-30/include/net/tcp.h
   1. #define TCP_RTO_MIN     ((unsigned)(HZ/5))
   2. #define TCP_TIMEOUT_INIT ((unsigned)(3*HZ)) 
-  3. #define TCP_DELACK_MAX  ((unsigned)(0*HZ))
+  3. #define TCP_DELACK_MAX  ((unsigned)(0*HZ))   
+  NOTE: For above, "HZ/5" = 200ms; "3*HZ" = 3 seconds, etc.  
+
 
 3. Verify MSS is set to 1460B:  
   1. $ ifconfig -i
   2. Verify MTU is listed as 1500 on interfaces displayed with above command. (MSS = MTU - 40B)
-  3. If Change is required, perform the following:
+  3. If Change is required, perform the following:  
    * $ vi /etc/network/interfaces
    * Add MTU for each required interface by adding: "mtu 1500"
    * Save, close, and restart networking: $ /etc/init.d/networking restart 
