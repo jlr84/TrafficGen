@@ -18,6 +18,7 @@ from mininet.node import CPULimitedHost
 from mininet.link import TCLink
 from mininet.util import waitListening
 
+
 class BenchmarkTopo( Topo ):
     "BenchmarkTopo."
 
@@ -45,21 +46,21 @@ class BenchmarkTopo( Topo ):
         # Add log host
         h500 = self.addHost( 'log' )
 
-	# Add Controller
-	# NOTE: ***Don't think we need this; commented out for now.***
-	# controller = self.addHost('controller')
+        # Add Controller
+        # NOTE: ***Don't think we need this; commented out for now.***
+        # controller = self.addHost('controller')
 
         # Add links 
         # Switches first
-        self.addLink( sw1, sw2, bw=256, delay='5ms', max_queue_size=1000 ) 
+        self.addLink( sw1, sw2, bw=256, delay='5ms', max_queue_size=1000 )
 
         # Add links to log host
         self.addLink( sw1, h500 )
         self.addLink( sw2, h500 )
 
         # Add links to controller host
-	# NOTE: ***Commented out due to above note.***
-	# self.addLink( sw1, controller)
+        # NOTE: ***Commented out due to above note.***
+        # self.addLink( sw1, controller)
         # self.addLink( sw2, controller)
 
         # Add links to sender hosts
@@ -81,6 +82,7 @@ def setupNetwork():
     topo = BenchmarkTopo()
     net = Mininet(topo=topo, link=TCLink)
     return net
+
 
 def connectToRootNS( network, switch, ip, routes ):
     """Connect hosts to root namespace via switch. Starts network.
@@ -127,12 +129,26 @@ def sshd( network, cmd='/usr/sbin/sshd', opts='-D',
         host.cmd( 'kill %' + cmd )
     network.stop()
 
+
 if __name__ == '__main__':
     lg.setLogLevel( 'info')
     net = setupNetwork() 
+    # Add NAT connectivity
+    net.addNAT().configDefault()
+ 
+    # INSTEAD of starting here, we will use the sshd start instead:
+    #net.start()
+    #print "*** Hosts are running and should have internet connectivity"
+    #print "*** Type 'exit' or control-D to shut down network"
+    #CLI( net )
+    # Shut down NAT
+    #net.stop()
+
     # get sshd args from the command line or use default args
     # useDNS=no -u0 to avoid reverse DNS lookup timeout
     argvopts = ' '.join( sys.argv[ 1: ] ) if len( sys.argv ) > 1 else (
         '-D -o UseDNS=no -u0' )
     sshd( net, opts=argvopts )
+
+
 
