@@ -23,15 +23,16 @@ $ sudo mn --custom ~/mininet/TrafficGen/mytopo.py --topo benchmark --link=tc
 $ sudo apt-get install sshpass -y
 
 ## Host / VM Setup Details
-1. Configure Ubuntu to use TCP NewReno:  
-   $ sudo sysctl net.ipv4.tcp_congestion_control=newreno
+1. Configure Ubuntu to use TCP Reno:  
+   $ sudo sysctl net.ipv4.tcp_congestion_control=reno   
+   NOTE: "newreno" is no longer an option in current Ubuntu headers
 
 2. Set TCP Congestion Control to minRTO of 200ms, initRTO of 3s,  and disable Delayed ACK:  
    Open the following file, and change the values as indicated here.  
    /usr/src/linux-headers-3.16.0-30/include/net/tcp.h
   1. #define TCP_RTO_MIN     ((unsigned)(HZ/5))
-  2. #define TCP_TIMEOUT_INIT ((unsigned)(3*HZ)) 
-  3. #define TCP_DELACK_MAX  ((unsigned)(0*HZ))   
+  2. #define TCP_TIMEOUT_INIT ((unsigned)(3*HZ))   
+  3. #define TCP_DELACK_MAX  ((unsigned)(0*HZ))      
   NOTE: For above, "HZ/5" = 200ms; "3*HZ" = 3 seconds, etc.  
 
 
