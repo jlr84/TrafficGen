@@ -31,9 +31,9 @@ $ sudo apt-get install sshpass -y
    Open the following file, and change the values as indicated here.  
    /usr/src/linux-headers-3.16.0-30/include/net/tcp.h
   1. #define TCP_RTO_MIN     ((unsigned)(HZ/5))
-  2. #define TCP_TIMEOUT_INIT ((unsigned)(3,,\*HZ))   
+  2. #define TCP_TIMEOUT_INIT ((unsigned)(3\*HZ))   
   3. #define TCP_DELACK_MAX  ((unsigned)(0\*HZ))      
-  NOTE: For above, "HZ/5" = 200ms; "3\*HZ" = 3 seconds, etc.  
+  NOTE: For above, "HZ/5" = 200ms; "3\*HZ" = 3 seconds, etc; backslash '\' above is only for formatting on github -- do not include backslash when editing the above file.   
 
 
 3. Verify MSS is set to 1460B:  
