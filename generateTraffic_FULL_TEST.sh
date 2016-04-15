@@ -39,7 +39,7 @@
 
 
 # first clean up all old binary logs
-rm -rf log_*
+rm -rf ../../../log_*
 
 # now start the actual tests
 ####################
@@ -102,7 +102,7 @@ ssh -oStrictHostKeyChecking=no mininet@10.0.0.20 "~/mininet/TrafficGen/D-ITG-2.8
 echo '***** Sender 1'
 bash -i -l -c 'sshpass -p mininet \
 ssh -oStrictHostKeyChecking=no mininet@10.0.0.1 "\
-echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.11 10.0.0.21   01000 300000 5650 0>/dev/null && \
+echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.11 10.0.0.21   01000 20000 4950 0>/dev/null && \
 \
 date && echo ***** ... Sender 1 FINISHED"&'
 
@@ -110,7 +110,7 @@ date && echo ***** ... Sender 1 FINISHED"&'
 echo '***** Sender 2'
 bash -i -l -c 'sshpass -p mininet \
 ssh -oStrictHostKeyChecking=no mininet@10.0.0.2 "\
-echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.12 10.0.0.21  02000 300000 5650 0>/dev/null && \
+echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.12 10.0.0.21  02000 20000 4950 0>/dev/null && \
 \
 date && echo ***** ... Sender 2 FINISHED"&'
 
@@ -118,7 +118,7 @@ date && echo ***** ... Sender 2 FINISHED"&'
 echo '***** Sender 3'
 bash -i -l -c 'sshpass -p mininet \
 ssh -oStrictHostKeyChecking=no mininet@10.0.0.3 "\
-echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.13 10.0.0.21  03000 300000 5650 0>/dev/null && \
+echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.13 10.0.0.21  03000 20000 4950 0>/dev/null && \
 \
 date && echo ***** ... Sender 3 FINISHED"&'
 
@@ -126,7 +126,7 @@ date && echo ***** ... Sender 3 FINISHED"&'
 echo '***** Sender 4'
 bash -i -l -c 'sshpass -p mininet \
 ssh -oStrictHostKeyChecking=no mininet@10.0.0.4 "\
-echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.14 10.0.0.21  04000 300000 5650 0>/dev/null && \
+echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.14 10.0.0.21  04000 20000 4950 0>/dev/null && \
 \
 date && echo ***** ... Sender 4 FINISHED"&'
 
@@ -134,7 +134,7 @@ date && echo ***** ... Sender 4 FINISHED"&'
 echo '***** Sender 5'
 bash -i -l -c 'sshpass -p mininet \
 ssh -oStrictHostKeyChecking=no mininet@10.0.0.5 "\
-echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.15 10.0.0.21  05000 300000 5650 0>/dev/null && \
+echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.15 10.0.0.21  05000 20000 4950 0>/dev/null && \
 \
 date && echo ***** ... Sender 5 FINISHED"&'
 
@@ -142,7 +142,7 @@ date && echo ***** ... Sender 5 FINISHED"&'
 echo '***** Sender 6'
 bash -i -l -c 'sshpass -p mininet \
 ssh -oStrictHostKeyChecking=no mininet@10.0.0.6 "\
-echo '\n' && date && sleep 30 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCPBursty_cbr 10.0.0.16 10.0.0.21  06000 90000 5650 0>/dev/null && \
+echo '\n' && date && sleep 10 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.16 10.0.0.21  06000 1500 1157 0>/dev/null && \
 \
 date && echo ***** ... Sender 6 FINISHED"&'
 
@@ -150,7 +150,7 @@ date && echo ***** ... Sender 6 FINISHED"&'
 echo '***** Sender 7'
 bash -i -l -c 'sshpass -p mininet \
 ssh -oStrictHostKeyChecking=no mininet@10.0.0.7 "\
-echo '\n' && date && sleep 30 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCPBursty_cbr 10.0.0.17 10.0.0.21  07000 90000 5650 0>/dev/null && \
+echo '\n' && date && sleep 10 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.17 10.0.0.21  07000 1500 1157 0>/dev/null && \
 \
 date && echo ***** ... Sender 7 FINISHED"&'
 
@@ -158,7 +158,7 @@ date && echo ***** ... Sender 7 FINISHED"&'
 echo '***** Sender 8'
 bash -i -l -c 'sshpass -p mininet \
 ssh -oStrictHostKeyChecking=no mininet@10.0.0.8 "\
-echo '\n' && date && sleep 30 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCPBursty_cbr 10.0.0.18 10.0.0.21  08000 90000 5650 0>/dev/null && \
+echo '\n' && date && sleep 10 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.18 10.0.0.21  08000 1500 1157 0>/dev/null && \
 \
 date && echo ***** ... Sender 8 FINISHED"&'
 
@@ -166,7 +166,7 @@ date && echo ***** ... Sender 8 FINISHED"&'
 echo '***** Sender 9'
 bash -i -l -c 'sshpass -p mininet \
 ssh -oStrictHostKeyChecking=no mininet@10.0.0.9 "\
-echo '\n' && date && sleep 30 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCPBursty_cbr 10.0.0.19 10.0.0.21  09000 90000 5650 0>/dev/null && \
+echo '\n' && date && sleep 10 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.19 10.0.0.21  09000 1500 1157 0>/dev/null && \
 \
 date && echo ***** ... Sender 9 FINISHED"&'
 
@@ -174,7 +174,7 @@ date && echo ***** ... Sender 9 FINISHED"&'
 echo '***** Sender 10'
 bash -i -l -c 'sshpass -p mininet \
 ssh -oStrictHostKeyChecking=no mininet@10.0.0.10 "\
-echo '\n' && date && sleep 30 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCPBursty_cbr 10.0.0.20 10.0.0.21  10000 90000 5650 0>/dev/null && \
+echo '\n' && date && sleep 10 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.20 10.0.0.21  10000 1500 1157 0>/dev/null && \
 \
 date && echo ***** ... Sender 10 FINISHED"&'
 
