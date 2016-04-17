@@ -18,6 +18,7 @@ from mininet.node import CPULimitedHost
 from mininet.link import TCLink
 from mininet.util import waitListening
 from mininet.node import RemoteController
+from mininet.util import ipAdd
 
 
 class BenchmarkTopo( Topo ):
@@ -37,12 +38,14 @@ class BenchmarkTopo( Topo ):
         # Add sender hosts
         senders = set()
         for i in range(1,11):
-            senders.add(self.addHost('h'+str(i)))
+            senders.add(self.addHost('h'+str(i),ip="10.0.0."+str(i)+"/8" ))
+            self.addLink( 'h'+str(i), sw1, bw=256, delay='5ms', port1=i)
 
         # Add receiver hosts
         receivers = set()
         for i in range(201,211):
-            receivers.add(self.addHost('h'+str(i)))
+            receivers.add(self.addHost('h'+str(i),ip='10.0.0.'+str(i-120)+'/8'))
+            self.addLink( 'h'+str(i), sw2, bw=256, delay='5ms', port1=i-200)
 
         # Add log host
         h500 = self.addHost( 'log' )
@@ -51,9 +54,21 @@ class BenchmarkTopo( Topo ):
         # NOTE: ***Don't think we need this; commented out for now.***
         # controller = self.addHost('controller')
 
+        # Add links to sender hosts
+        #COUNTER=1
+        #for i in senders:
+        #    self.addLink( i, sw1, bw=256, delay='5ms', port1=COUNTER)
+        #    COUNTER=COUNTER+1
+
+        # Add links to receiver hosts
+        #COUNTER=1
+        #for i in receivers:
+        #    self.addLink( i, sw2, bw=256, delay='5ms', port1=COUNTER)
+        #    COUNTER=COUNTER+1
+
         # Add links 
         # Switches first
-        self.addLink( sw1, sw2, bw=256, delay='5ms', max_queue_size=1000 )
+        self.addLink( sw1, sw2, bw=256, delay='5ms', max_queue_size=1000, port1=13, port2=13 )
 
         # Add links to log host
         self.addLink( sw1, h500 )
@@ -64,14 +79,6 @@ class BenchmarkTopo( Topo ):
         # self.addLink( sw1, controller)
         # self.addLink( sw2, controller)
 
-        # Add links to sender hosts
-        for i in senders:
-            self.addLink( i, sw1, bw=256, delay='5ms')
-
-        # Add links to receiver hosts
-        for i in receivers:
-            self.addLink( i, sw2, bw=256, delay='5ms')
-
 topos = { 'benchmark': ( lambda: BenchmarkTopo() ) }
 
 
@@ -81,7 +88,7 @@ topos = { 'benchmark': ( lambda: BenchmarkTopo() ) }
 def setupNetwork():
     "Create network and run simple performance test"
     topo = BenchmarkTopo()
-    net = Mininet(topo=topo, controller=lambda a: RemoteController( a, ip='0.0.0.0', port=6653 ), link=TCLink)
+    net = Mininet(topo=topo, controller=lambda a: RemoteController( a, ip='0.0.0.0', port=6653 ), link=TCLink, autoSetMacs='false')
     return net
 
 
@@ -135,7 +142,7 @@ if __name__ == '__main__':
     lg.setLogLevel( 'info')
     net = setupNetwork() 
     # Add NAT connectivity
-    net.addNAT().configDefault()
+    #net.addNAT().configDefault()
  
     # INSTEAD of starting here, we will use the sshd start instead:
     #net.start()
@@ -150,6 +157,3 @@ if __name__ == '__main__':
     argvopts = ' '.join( sys.argv[ 1: ] ) if len( sys.argv ) > 1 else (
         '-D -o UseDNS=no -u0' )
     sshd( net, opts=argvopts )
-
-
-

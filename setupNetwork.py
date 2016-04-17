@@ -80,7 +80,7 @@ topos = { 'benchmark': ( lambda: BenchmarkTopo() ) }
 def setupNetwork():
     "Create network and run simple performance test"
     topo = BenchmarkTopo()
-    net = Mininet(topo=topo, link=TCLink)
+    net = Mininet(topo=topo, link=TCLink, autoSetMacs='false')
     return net
 
 
