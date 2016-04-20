@@ -39,59 +39,9 @@
 
 
 # first clean up all old binary logs
-rm -rf log_*
+rm -rf ../../../log_*
 
 # now start the actual tests
-
-####################
-echo '***** Receiver 1'
-bash -i -l -c 'sshpass -p mininet \
-ssh -oStrictHostKeyChecking=no mininet@10.0.0.81 "~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGRecv 0>/dev/null" &'
-
-####################
-echo '***** Receiver 2'
-bash -i -l -c 'sshpass -p mininet \
-ssh -oStrictHostKeyChecking=no mininet@10.0.0.82 "~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGRecv 0>/dev/null" &'
-
-####################
-echo '***** Receiver 3'
-bash -i -l -c 'sshpass -p mininet \
-ssh -oStrictHostKeyChecking=no mininet@10.0.0.83 "~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGRecv 0>/dev/null" &'
-
-####################
-echo '***** Receiver 4'
-bash -i -l -c 'sshpass -p mininet \
-ssh -oStrictHostKeyChecking=no mininet@10.0.0.84 "~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGRecv 0>/dev/null" &'
-
-####################
-echo '***** Receiver 5'
-bash -i -l -c 'sshpass -p mininet \
-ssh -oStrictHostKeyChecking=no mininet@10.0.0.85 "~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGRecv 0>/dev/null" &'
-
-####################
-echo '***** Receiver 6'
-bash -i -l -c 'sshpass -p mininet \
-ssh -oStrictHostKeyChecking=no mininet@10.0.0.86 "~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGRecv 0>/dev/null" &'
-
-####################
-echo '***** Receiver 7'
-bash -i -l -c 'sshpass -p mininet \
-ssh -oStrictHostKeyChecking=no mininet@10.0.0.87 "~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGRecv 0>/dev/null" &'
-
-####################
-echo '***** Receiver 8'
-bash -i -l -c 'sshpass -p mininet \
-ssh -oStrictHostKeyChecking=no mininet@10.0.0.88 "~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGRecv 0>/dev/null" &'
-
-####################
-echo '***** Receiver 9'
-bash -i -l -c 'sshpass -p mininet \
-ssh -oStrictHostKeyChecking=no mininet@10.0.0.89 "~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGRecv 0>/dev/null" &'
-
-####################
-echo '***** Receiver 10'
-bash -i -l -c 'sshpass -p mininet \
-ssh -oStrictHostKeyChecking=no mininet@10.0.0.90 "~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGRecv 0>/dev/null" &'
 
 ####################
 echo '***** Sender 1'
@@ -132,6 +82,46 @@ ssh -oStrictHostKeyChecking=no mininet@10.0.0.5 "\
 echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.85  05000 20000 4950 0>/dev/null && \
 \
 date && echo ***** ... Sender 5 FINISHED"&'
+
+####################
+echo '***** Sender 6'
+bash -i -l -c 'sshpass -p mininet \
+ssh -oStrictHostKeyChecking=no mininet@10.0.0.6 "\
+echo '\n' && date && sleep 10 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.86  06000 1500 1157 0>/dev/null && \
+\
+date && echo ***** ... Sender 6 FINISHED"&'
+
+####################
+echo '***** Sender 7'
+bash -i -l -c 'sshpass -p mininet \
+ssh -oStrictHostKeyChecking=no mininet@10.0.0.7 "\
+echo '\n' && date && sleep 10 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.87  07000 1500 1157 0>/dev/null && \
+\
+date && echo ***** ... Sender 7 FINISHED"&'
+
+####################
+echo '***** Sender 8'
+bash -i -l -c 'sshpass -p mininet \
+ssh -oStrictHostKeyChecking=no mininet@10.0.0.8 "\
+echo '\n' && date && sleep 10 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.88  08000 1500 1157 0>/dev/null && \
+\
+date && echo ***** ... Sender 8 FINISHED"&'
+
+####################
+echo '***** Sender 9'
+bash -i -l -c 'sshpass -p mininet \
+ssh -oStrictHostKeyChecking=no mininet@10.0.0.9 "\
+echo '\n' && date && sleep 10 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.89  09000 1500 1157 0>/dev/null && \
+\
+date && echo ***** ... Sender 9 FINISHED"&'
+
+####################
+echo '***** Sender 10'
+bash -i -l -c 'sshpass -p mininet \
+ssh -oStrictHostKeyChecking=no mininet@10.0.0.10 "\
+echo '\n' && date && sleep 10 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.90  10000 1500 1157 0>/dev/null && \
+\
+date && echo ***** ... Sender 10 FINISHED"&'
 
 ####################
 echo '***** END TEST'

@@ -39,7 +39,7 @@
 
 
 # first clean up all old binary logs
-rm -rf log_*
+rm -rf ../../../log_*
 
 # now start the actual tests
 
@@ -133,5 +133,52 @@ echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.85  0
 \
 date && echo ***** ... Sender 5 FINISHED"&'
 
+####################
+echo '***** Sender 6'
+bash -i -l -c 'sshpass -p mininet \
+ssh -oStrictHostKeyChecking=no mininet@10.0.0.6 "\
+echo '\n' && date && sleep 10 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.86  06000 3000 1157 0>/dev/null && \
+\
+date && echo ***** ... Sender 6 FINISHED"&'
+
+####################
+echo '***** Sender 7'
+bash -i -l -c 'sshpass -p mininet \
+ssh -oStrictHostKeyChecking=no mininet@10.0.0.7 "\
+echo '\n' && date && sleep 10 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.87  07000 3000 1157 0>/dev/null && \
+\
+date && echo ***** ... Sender 7 FINISHED"&'
+
+####################
+echo '***** Sender 8'
+bash -i -l -c 'sshpass -p mininet \
+ssh -oStrictHostKeyChecking=no mininet@10.0.0.8 "\
+echo '\n' && date && sleep 10 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.88  08000 3000 1157 0>/dev/null && \
+\
+date && echo ***** ... Sender 8 FINISHED"&'
+
+####################
+echo '***** Sender 9'
+bash -i -l -c 'sshpass -p mininet \
+ssh -oStrictHostKeyChecking=no mininet@10.0.0.9 "\
+echo '\n' && date && sleep 10 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.89  09000 3000 1157 0>/dev/null && \
+\
+date && echo ***** ... Sender 9 FINISHED"&'
+
+####################
+echo '***** Sender 10'
+bash -i -l -c 'sshpass -p mininet \
+ssh -oStrictHostKeyChecking=no mininet@10.0.0.10 "\
+echo '\n' && date && sleep 10 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.90  10000 3000 1157 0>/dev/null && \
+\
+date && echo ***** ... Sender 10 FINISHED"&'
+
+####################
+sleep 10
+sudo ovs-ofctl add-flow s1 "priority=62000,tcp,ip,ip_src=10.0.0.81,ip_dst=10.0.0.1,actions=controller"
+sudo ovs-ofctl add-flow s1 "priority=62000,tcp,ip,ip_src=10.0.0.82,ip_dst=10.0.0.2,actions=controller"
+sleep 3
+sudo ovs-ofctl del-flows s1 "tcp,ip,ip_src=10.0.0.82,ip_dst=10.0.0.2"
+sudo ovs-ofctl del-flows s1 "tcp,ip,ip_src=10.0.0.81,ip_dst=10.0.0.1"
 ####################
 echo '***** END TEST'

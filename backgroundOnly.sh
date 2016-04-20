@@ -42,56 +42,7 @@
 rm -rf log_*
 
 # now start the actual tests
-
 ####################
-echo '***** Receiver 1'
-bash -i -l -c 'sshpass -p mininet \
-ssh -oStrictHostKeyChecking=no mininet@10.0.0.81 "~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGRecv 0>/dev/null" &'
-
-####################
-echo '***** Receiver 2'
-bash -i -l -c 'sshpass -p mininet \
-ssh -oStrictHostKeyChecking=no mininet@10.0.0.82 "~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGRecv 0>/dev/null" &'
-
-####################
-echo '***** Receiver 3'
-bash -i -l -c 'sshpass -p mininet \
-ssh -oStrictHostKeyChecking=no mininet@10.0.0.83 "~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGRecv 0>/dev/null" &'
-
-####################
-echo '***** Receiver 4'
-bash -i -l -c 'sshpass -p mininet \
-ssh -oStrictHostKeyChecking=no mininet@10.0.0.84 "~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGRecv 0>/dev/null" &'
-
-####################
-echo '***** Receiver 5'
-bash -i -l -c 'sshpass -p mininet \
-ssh -oStrictHostKeyChecking=no mininet@10.0.0.85 "~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGRecv 0>/dev/null" &'
-
-####################
-echo '***** Receiver 6'
-bash -i -l -c 'sshpass -p mininet \
-ssh -oStrictHostKeyChecking=no mininet@10.0.0.86 "~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGRecv 0>/dev/null" &'
-
-####################
-echo '***** Receiver 7'
-bash -i -l -c 'sshpass -p mininet \
-ssh -oStrictHostKeyChecking=no mininet@10.0.0.87 "~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGRecv 0>/dev/null" &'
-
-####################
-echo '***** Receiver 8'
-bash -i -l -c 'sshpass -p mininet \
-ssh -oStrictHostKeyChecking=no mininet@10.0.0.88 "~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGRecv 0>/dev/null" &'
-
-####################
-echo '***** Receiver 9'
-bash -i -l -c 'sshpass -p mininet \
-ssh -oStrictHostKeyChecking=no mininet@10.0.0.89 "~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGRecv 0>/dev/null" &'
-
-####################
-echo '***** Receiver 10'
-bash -i -l -c 'sshpass -p mininet \
-ssh -oStrictHostKeyChecking=no mininet@10.0.0.90 "~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGRecv 0>/dev/null" &'
 
 ####################
 echo '***** Sender 1'

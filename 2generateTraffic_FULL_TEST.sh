@@ -39,7 +39,7 @@
 
 
 # first clean up all old binary logs
-rm -rf log_*
+rm -rf ../../../log_*
 
 # now start the actual tests
 
@@ -132,6 +132,46 @@ ssh -oStrictHostKeyChecking=no mininet@10.0.0.5 "\
 echo '\n' && date && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.85  05000 20000 4950 0>/dev/null && \
 \
 date && echo ***** ... Sender 5 FINISHED"&'
+
+####################
+echo '***** Sender 6'
+bash -i -l -c 'sshpass -p mininet \
+ssh -oStrictHostKeyChecking=no mininet@10.0.0.6 "\
+echo '\n' && date && sleep 10 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.86  06000 3000 1157 0>/dev/null && \
+\
+date && echo ***** ... Sender 6 FINISHED"&'
+
+####################
+echo '***** Sender 7'
+bash -i -l -c 'sshpass -p mininet \
+ssh -oStrictHostKeyChecking=no mininet@10.0.0.7 "\
+echo '\n' && date && sleep 10 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.87  07000 3000 1157 0>/dev/null && \
+\
+date && echo ***** ... Sender 7 FINISHED"&'
+
+####################
+echo '***** Sender 8'
+bash -i -l -c 'sshpass -p mininet \
+ssh -oStrictHostKeyChecking=no mininet@10.0.0.8 "\
+echo '\n' && date && sleep 10 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.88  08000 3000 1157 0>/dev/null && \
+\
+date && echo ***** ... Sender 8 FINISHED"&'
+
+####################
+echo '***** Sender 9'
+bash -i -l -c 'sshpass -p mininet \
+ssh -oStrictHostKeyChecking=no mininet@10.0.0.9 "\
+echo '\n' && date && sleep 10 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.89  09000 3000 1157 0>/dev/null && \
+\
+date && echo ***** ... Sender 9 FINISHED"&'
+
+####################
+echo '***** Sender 10'
+bash -i -l -c 'sshpass -p mininet \
+ssh -oStrictHostKeyChecking=no mininet@10.0.0.10 "\
+echo '\n' && date && sleep 10 && ~/mininet/TrafficGen/ITGscripts/ITGSendTCP_cbr 10.0.0.90  10000 3000 1157 0>/dev/null && \
+\
+date && echo ***** ... Sender 10 FINISHED"&'
 
 ####################
 echo '***** END TEST'

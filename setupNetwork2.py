@@ -17,7 +17,7 @@ from mininet.node import Node
 from mininet.node import CPULimitedHost
 from mininet.link import TCLink
 from mininet.util import waitListening
-from mininet.node import RemoteController
+#from mininet.node import RemoteController
 from mininet.util import ipAdd
 
 
@@ -71,8 +71,8 @@ class BenchmarkTopo( Topo ):
         self.addLink( sw1, sw2, bw=256, delay='5ms', max_queue_size=1000, port1=13, port2=13 )
 
         # Add links to log host
-#        self.addLink( sw1, h500 )
-#        self.addLink( sw2, h500 )
+ #       self.addLink( sw1, h500 )
+  #      self.addLink( sw2, h500 )
 
         # Add links to controller host
         # NOTE: ***Commented out due to above note.***
@@ -88,7 +88,7 @@ topos = { 'benchmark': ( lambda: BenchmarkTopo() ) }
 def setupNetwork():
     "Create network and run simple performance test"
     topo = BenchmarkTopo()
-    net = Mininet(topo=topo, controller=lambda a: RemoteController( a, ip='0.0.0.0', port=6653 ), link=TCLink, autoSetMacs='false')
+    net = Mininet(topo=topo, link=TCLink, autoSetMacs='false')
     return net
 
 
