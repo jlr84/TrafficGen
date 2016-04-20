@@ -32,8 +32,9 @@ sendname="log_tcp_snd_${3}_cbr"
 recvname="log_tcp_rcv_${3}_cbr"
 #TRAFFIC
 bitrate=1460 
-duration="${4}"
-packetcount="${5}"
+duration="${3}"
+packetcount="${4}"
 #
 #GO TEST SOME STUFF
-~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGSend -a $destserv -rp 9500 -T TCP -C $packetcount -c $bitrate -t $duration -l $sendname -L $logserv -x $recvname -X $logserv
+#~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGSend -a $destserv -rp 9500 -T TCP -C $packetcount -c $bitrate -t $duration -l $sendname -L $logserv -x $recvname -X $logserv
+~/mininet/TrafficGen/D-ITG-2.8.1-r1023/bin/ITGSend -a $destserv -rp 9500 -T TCP -C $packetcount -c $bitrate -t $duration -l $sendname -x $recvname

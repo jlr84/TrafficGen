@@ -48,7 +48,7 @@ class BenchmarkTopo( Topo ):
             self.addLink( 'h'+str(i), sw2, bw=256, delay='5ms', port1=i-200)
 
         # Add log host
-        h500 = self.addHost( 'log' )
+        h500 = self.addHost( 'log', ip='10.0.0.21/8' )
 
         # Add Controller
         # NOTE: ***Don't think we need this; commented out for now.***
